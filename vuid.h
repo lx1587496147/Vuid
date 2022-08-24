@@ -86,7 +86,7 @@ namespace vui
 			case nodetype::String:
 			{
 				auto str = String(((node *)this)->Data.String);
-				return L"\"" + replace_all<String>(str, L"\"", L"\\\"") + L"\"";
+				return L"\"" + replace_all<String>(replace_all<String>(str, L"\"", L"\\\""),L"\\",L"\\\\") + L"\"";
 				break;
 			}
 			case nodetype::Double:
